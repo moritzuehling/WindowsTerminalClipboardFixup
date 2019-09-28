@@ -167,8 +167,9 @@ namespace WindowsTerminalClipboardFixup
             }
 
             var majority = lineLenghts.GroupBy(a => a).OrderByDescending(a => a.Count()).First().Key;
+            var offset = lineLenghts[0] % majority;
 
-            return (majority, lineLenghts[0] % majority);
+            return (majority, offset);
         }
 
         private int CountChainLength(string text, int startIndex)
