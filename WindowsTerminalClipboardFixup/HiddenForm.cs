@@ -70,6 +70,9 @@ namespace WindowsTerminalClipboardFixup
         private void MonitorClipboard()
         {
             IDataObject iData = Clipboard.GetDataObject();
+            if (!iData.GetDataPresent(DataFormats.Text))
+                return;
+
             var text = (string)iData.GetData(DataFormats.Text);
 
             if (text == LastClipboardText)
@@ -87,9 +90,6 @@ namespace WindowsTerminalClipboardFixup
 
             // not the droid we're looking for.
             if (proc.ProcessName != "WindowsTerminal")
-                return;
-
-            if (!iData.GetDataPresent(DataFormats.Text))
                 return;
 
             var resLines = new List<string>();
