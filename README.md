@@ -28,7 +28,7 @@ FreeBSD Forums:        https://forums.Free
 
 You can download a build [here](https://github.com/moritzuehling/WindowsTerminalClipboardFixup/releases). 
 
-## How does it work
+## How does it work?
 
 Everytime you copy text, it checks if the copied text was copied out of the new Windows Terminal.
 If that is indeed the case, it tries to estimate the length of a line, and tries to split up the text according to that.
